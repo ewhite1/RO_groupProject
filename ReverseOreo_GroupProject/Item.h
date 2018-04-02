@@ -3,12 +3,14 @@
 using namespace std;
 class Item
 {
-	string name;
-	string properties;
-	int strength;
-	int itemID; //optional
+	
 
 public:
+	string name;
+	string description;
+	int itemID; //optional
+	bool isVisble;
+	bool pickup;
 	Item();
 	~Item();
 };
