@@ -5,7 +5,6 @@ class roomba :
 {
 public:
 	void SaySomething();
-	void move();
 
 	roomba();
 	~roomba();
