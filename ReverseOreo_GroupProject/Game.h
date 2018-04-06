@@ -5,7 +5,7 @@ using namespace std;
 class Game
 {
 public:
-	bool leaveGame();
+	bool leaveGame(bool exitGame);
 	Game();
 	~Game();
 };
