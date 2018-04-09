@@ -1,7 +1,7 @@
 #include "Game.h"
 #include <cstdlib>
 #include <iomanip>
-
+#include "MiniMap.h"
 
 
 using namespace std;
@@ -49,6 +49,8 @@ Game::Game()
 	while (gameActive = true)
 	{
 		string input;
+		system("cls");
+		MiniMap();
 		cout << "\nYour Action? : ";
 		getline(cin, input);
 		if (input == "exit" || input == "EXIT"){
@@ -60,6 +62,7 @@ Game::Game()
 			cout << "\nInvalid Command. Type Help for valid commands" << endl;
 			//just to be safe
 			gameActive = true;
+			system("pause");
 		}
 		
 	}

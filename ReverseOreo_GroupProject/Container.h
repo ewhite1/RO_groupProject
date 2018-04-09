@@ -7,7 +7,7 @@ public:
 	//array of items
 	//description
 	// auto immovable
-
+	Item items[];
 	Container();
 	~Container();
 };
