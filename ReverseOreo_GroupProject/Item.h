@@ -11,7 +11,7 @@ public:
 	int itemID; //optional
 	//if the item is visable with a look command
 	bool isVisble;	
-	// immovable means the item is stuck, or is a container such as a cabinet
+	// immovable means the item is stuck, large, or is a container such as a cabinet
 	bool immovable;
 	// is it a container type, which can hold more items inside of it. 
 	Item();
