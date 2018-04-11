@@ -10,9 +10,9 @@ public:
 	string description;
 	int itemID; //optional
 	//if the item is visable with a look command
-	bool isVisble;	
+	bool isVisable;	
 	// immovable means the item is stuck, large, or is a container such as a cabinet
-	bool immovable;
+	bool isMovable;
 	// is it a container type, which can hold more items inside of it. 
 	Item();
 	~Item();

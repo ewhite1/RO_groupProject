@@ -69,11 +69,31 @@ Game::Game()
 	S.items[5] = {};
 	S.coords = "8,1";
 
-	string name;
-	string description;
-	int itemID;
-	bool isVisble;
-	bool immovable;
+	Item SpaceSuit, Tivs, Cane, Keycard, Terminal, BridgeMonitors, SensorMonitors, CaptainsLog;
+	SpaceSuit.name = "My Space Suit";
+	SpaceSuit.description = "Custom, for the Maintenance personel of the crew. Luckily it has holsters for the and items I have.";
+	SpaceSuit.isVisable = true;
+	SpaceSuit.isMovable = true;
+
+	Tivs.name = "T.I.V.S.";
+	Tivs.description = "This little guy is as random as ever. The captain finds it adorable but the rust of us think its logic processors need a complete overhaul.";
+	Tivs.isVisable = true;
+	Tivs.isMovable = true;
+
+	Cane.name = "Captain Corvin's Cane";
+	Cane.description = "The Captains cane..... its extremely fancy, completely made of titanium or so he says. Surprizingly light, maybe he wasn't lying.";
+	Cane.isVisable = true;
+	Cane.isMovable = true;
+
+	Keycard.name = "Keycard";
+	Keycard.description = "Chief Officer Turk was still holding onto it when I went out...... *Shudders*";
+	Keycard.isVisable = false;
+	Keycard.isMovable = true;
+
+	/*.name = "";
+	.description = "";
+	.isVisable = ;
+	.isMovable = ;*/
 	
 
 	//control the game is running
