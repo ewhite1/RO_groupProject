@@ -4,6 +4,7 @@
 
 Character::Character()
 {
+	health = 10;
 }
 
 

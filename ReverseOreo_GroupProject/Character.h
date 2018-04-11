@@ -2,21 +2,17 @@
 #include <string>
 #include "item.h"
 #include "Location.h"
+#include "Game.h"
+
 using namespace std;
 
-class Character {
-	
-
-
-	
+class Character {	
 	public:
 	
 		string charName;
 		int health;
-		//change locations
-		void move();
-		//where I am I? that what atLocale is
-		Location atlocale();
+		//where am I? That is what atLocale is
+		Location * atlocale;
 		Character();
 		~Character();
 
