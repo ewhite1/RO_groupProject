@@ -1,0 +1,129 @@
+LEGEND:
+	Pickup items (PK)
+	Equip/UnEquip items (EQ)/ Limited Equip (LE)
+	Readable items (RI)
+	
+
+
+AI Control room(Room C)
+	Description:(BEfore)My usual workspace. Working with the new AI system makes my job so much easier. Thank god the Captain got this for us. He said he got it fairly cheap but for a cheap AI it is well worth its cost.
+	(After)My workspace..... Time to shut J.A.F.A.R. down before it makes things worse.
+	Items:Readable screens but otherwise nothing
+	Storages: Tool cabinets
+	T.I.V.S:Does not enter this room on his own 
+	Paths:Captains Quarters (Room D)
+	Hazards:None
+	Task:Decide how to shut down the AI
+	
+
+Captains Courters(Room D)
+	Description:(Befre)Captains not in his room? Must be in the kitchen with Florence. They usually stay there telling stories for hours. They have way to many adventures together. I wonder how old they are....
+	(After)Captains room. Less of a mess than one would think. Hopeully the captain wasnt jetisoned with that group....
+	Items:Captains belongings, notes, other readable items
+	Storages:Closet, cabnets
+	T.I.V.S:can not be in this room without being carried
+	Paths:AI Control room (Room C) and  Bridge (Room E)
+	Hazards:None
+	Task:Figure out how to get in the AIC room
+
+Bridge(Room E)
+	Description:(Before)Emptyas always. I can just faintly hear the chatter over comms from the members out on a spacewalk. I guess thats one good thing about working maintenece: Less distractions by the more....... outgoing of the crew
+	(After) Radio Silence. Nothing but the comms randomly hitting objects out in space. Completely pitch black. If only i could get some light.....
+	Items:(Random assorment of non pickupable but readable items(RI),Captains Cane (PK), Readable Screens
+	Storages:Captains perch, Storage locker, drawers
+	T.I.V.S:Found for the first time here, then can be located traveling the rooms
+	Paths:Captains room (Room D) Sensor (room B)
+	Hazards:Complete Darkness unless you have the headlamp on and active
+	Task:Find something to keep the door to A open.
+
+Sensor Controls(Room B)
+	Description:(Before) Sonsory room. Always fun to watch Jensens attempt at hitting on Laura fail, Captain getting hounded by Chef Dahm about needing new supplies before he starts feeding us grease and the occasional soap opera this 
+	ships crew plays out for me.
+	(After) I cant see a thing on these monitors anymore. No audio, no visuals. Not even the heat sensors are working. J.A.F.A.R..... ill delete it once i get to it.
+	Items: Headlamp(LE), Readable Screens, Random items
+	Storages:Cabinet(Headlamp) 
+	T.I.V.S:Access to the room with his funny quotes
+	Paths:Airlock room (Room A) the Bridge (room C)
+	Hazards: None
+	Task: Fix thing for J.A.F.A.R.(before) Get into the deck room to access the other rooms(After)
+
+AirLock(Room A)
+	Description:(Before) Oh hey. The Spacewalk group has returned. Hard to tell who all was out there but lets get back to work. J.A.F.A.R. needed a job done. Better do it before it tells the captain im being lazy.
+	(After) Its hard to look around in here. Just moments ago part of the crew was just here.....
+	Items: Space suit(LE)
+	Storages:Suit sockers Storage boxes
+	T.I.V.S:(Does not enter here
+	Paths:Space or Room B
+	Hazards:J.A.F.A.R. opening the air lock if you cant keep the door to room b open
+	Task:Figure out a way to keep the door open or get sucked into space without a suit
+
+Space
+	Description: Vast and mostly empty, space was quite a sight to see..... until these bodies littered the area...
+	Items: Your crew members, a key card
+	Task: Get key card
+
+
+J.A.F.A.R. AI
+	Just
+	Another
+	Failed
+	Attempt
+	 at
+	Robot-sentience
+
+T.I.V.S
+	The
+	Insatiable
+	Vacuum
+	 of
+	Space
+
+K.L.I.C X
+	Knowingly
+	Lost
+	In
+	Chaos
+
+Item Description(MAIN):
+	Space Suit: My Suit. Custom for the Maintenance personal of the crew. Luckily it has holsters for the and itemsi have.
+	T.I.V.S: This little guy is as random as ever. The captain finds it adorable but the rust of us think its logic processors need a complete overhaul.
+	Captains Cane: Captains cane..... its extremely fancy,  completely made of titanium or so he says. Its weight is no joke though. Surprised that old man could even walk with it.
+	Keycard: Chief Officer Turk was still holding onto it when i went out...... *Shudders*
+	J.A.F.A.R.s Terminal: The main terminal for J.A.F.A.R. How could we get such a disfunctional- oh wait........ Nevermind.
+	Bridge Monitors: Most of these are indicators for the ships main functions: Engines, Sheilds, Weapons and External Sensors. also has a description of the different things abort the ship:
+		J.A.F.A.R. Desc: The new ship AI purchased sheaply by the captain from a shade source. As to date, no issues but keep an eye out. (Chief Officer Turk probably wrote this. The man gets extremely suspicious of new things)
+		K.L.I.C. X Desc: The New from the K.L.I.C Series, this ship is ready for all situations. From battle with random space creatures to escaping black holes, this ship can do it all. Just avoid-
+				 (Yeahhh, lets avoid reading that list. rather notknow what could or could not kill us on this heap)
+		Captain Aaron Corvin: The Captain of this ship,though no one really knows much about the old mans past other than Turk and Dahm. And it better stay that way. (Written by The Captain no doubt. Strange man.)
+		Mission Log: Return to Home Base to resupply after their last adventure/job (Those starkids from the last mission were a strange bunch. I still never understand how dahm manage to.... best not to think about it.)
+	Sensor Monitors: Just information on all the other parts pf the ship. Monitoring health of everyone on one street
+	Captains Notes: Most of these are journal entries about our voyages aboard this ship. Didnt know the captain was such a romantic when it came to these adventure....wait...." I recently updated the software on T.I.V.S. Other than
+			Those of the Maintenance Group, no one can know how to get in the AI Control Room. Ive had T.I.V.S. Updated so that when he is at the door to the Control room, it will open for him. Luckily T.I.V.S. cant come 
+			into my room unless he is forced in."......I was gonna feel bad for reading his journal.. but thanks Captain.
+	
+
+°
+
+input == "goto""E"
+	
+switch(roomNum){
+	case A:
+
+	case B:
+
+	case C:
+
+	case D:
+
+	case E:
+
+	case S:
+
+}
+
+
+TOTAL JOKE ASSIGNMENT WITH POTENTIAL PROFIT:
+Make the ending a more open ended project. Create a Patreon, Kickstart, etc to potential get funds to start up an acyual production of the game.
+
+
+

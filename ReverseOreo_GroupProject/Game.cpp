@@ -68,6 +68,12 @@ Game::Game()
 	S.AltDescription = "Vast and mostly empty. space is quite a sight to see..... without all of these dead bodies...";
 	S.items[5] = {};
 	S.coords = "8,1";
+
+	string name;
+	string description;
+	int itemID;
+	bool isVisble;
+	bool immovable;
 	
 
 	//control the game is running
