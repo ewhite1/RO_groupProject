@@ -5,6 +5,65 @@
 
 using namespace std;
 
+void Input()
+{
+
+	string call = "", type;
+	char dummySpace = ' ';
+	int callNum = 0;
+
+
+	cout << "What would you like to do?\n(use the following commands followed by what item from inventory or room youre wanting)\nEX: MoveTo A\nCommands:\nMoveTo\nUseItem\nReadItem\nLookAround" << endl;
+	getline(cin, call);
+	//call.substr();
+	//cout << call.substr(0,6);
+	//cout << type << call;
+	if (call.substr(0, 6) == "MoveTo") {
+		callNum = 1;
+	}
+	else if (call.substr(0, 7) == "UseItem") {
+		callNum = 2;
+	}
+	else if (call == "ReadItem") {
+		callNum = 3;
+	}
+	else if (call == "LookAround") {
+		callNum = 4;
+	}
+
+	switch (callNum)
+	{
+	case 1:
+		if (call.substr(7, 1) == "A")
+		{
+			cout << "\nITS ALIVEEE" << endl;
+		}
+		break;
+	case 2:
+		if (call.substr(8, 4) == "Pipe") {
+
+		}else if (call.substr(8, 5) == "Light")
+		break;
+	case 3:
+		break;
+	case 4:
+		break;
+	default:
+		break;
+	}
+	system("pause");
+
+	MoveTo(call.substr(4, call.length - 4));
+
+
+}
+
+MoveTo(string potato) {
+	if (potato == A || potato == roomA)
+		Player.atlocale = A;
+}
+
+
 bool Game::leaveGame(bool exitGame)
 {
 	char choice;
@@ -103,20 +162,20 @@ Game::Game()
 		string input;
 		system("cls");
 		MiniMap();
-		cout << "\nYour Action? : ";
-		getline(cin, input);
-		if (input == "exit" || input == "EXIT"){
-			//run leaveGame function
-			leaveGame(gameActive);
-			
-		}
-		else {
-			cout << "\nInvalid Command. Type Help for valid commands" << endl;
-			//just to be safe
-			gameActive = true;
-			system("pause");
-		}
-		
+		//cout << "\nYour Action? : ";
+		//getline(cin, input);
+		//if (input == "exit" || input == "EXIT"){
+		//	//run leaveGame function
+		//	leaveGame(gameActive);
+		//	
+		//}
+		//else {
+		//	cout << "\nInvalid Command. Type Help for valid commands" << endl;
+		//	//just to be safe
+		//	gameActive = true;
+		//	system("pause");
+		//}
+		Input();
 	}
 }
 

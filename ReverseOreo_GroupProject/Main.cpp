@@ -6,7 +6,6 @@ using namespace std;
 int main() 
 {
 	system("cls");
-	MiniMap();
 	Game gamestate;
 	return 0;
 }
