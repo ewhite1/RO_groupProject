@@ -12,7 +12,6 @@ void Input()
 	char dummySpace = ' ';
 	int callNum = 0;
 
-
 	cout << "What would you like to do?\n(use the following commands followed by what item from inventory or room youre wanting)\nEX: MoveTo A\nCommands:\nMoveTo\nUseItem\nReadItem\nLookAround" << endl;
 	getline(cin, call);
 	//call.substr();
@@ -53,15 +52,15 @@ void Input()
 	}
 	system("pause");
 
-	MoveTo(call.substr(4, call.length - 4));
+	/*MoveTo(call.substr(4, call.length - 4));*/
 
 
 }
 
-MoveTo(string potato) {
-	if (potato == A || potato == roomA)
-		Player.atlocale = A;
-}
+//MoveTo(string potato) {
+//	if (potato == A || potato == roomA)
+//		Player.atlocale = A;
+//}
 
 
 bool Game::leaveGame(bool exitGame)
@@ -162,6 +161,7 @@ Game::Game()
 		string input;
 		system("cls");
 		MiniMap();
+		
 		//cout << "\nYour Action? : ";
 		//getline(cin, input);
 		//if (input == "exit" || input == "EXIT"){
@@ -175,6 +175,7 @@ Game::Game()
 		//	gameActive = true;
 		//	system("pause");
 		//}
+		cout << A.Description << endl;
 		Input();
 	}
 }
