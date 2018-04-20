@@ -8,7 +8,7 @@ public:
 	string AltDescription;
 	string coords;
 	string name;
-	Item *items[];
+	Item *items[20];
 	Location();
 	~Location();
 };

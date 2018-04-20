@@ -1,14 +1,10 @@
 #include "Game.h"
-#include <cstdlib>
-#include <iostream>
-#include <iomanip>
-
 
 using namespace std;
 
 Game::Game()
 {
-	Location A, B, C, D, E, S;
+	
 	A.name = "A";
 	A.Description = "The Airlock Bay.\nOh hey, the Spacewalk group has returned. Hard to tell who all was out there but lets get back to work. J.A.F.A.R. needed a job done. Better do it before it tells the captain im being lazy.";
 	A.AltDescription = "Its hard to look around in here. Just moments ago part of the crew was just here.....";
@@ -40,7 +36,6 @@ Game::Game()
 	S.items[5] = {};
 	S.coords = "8,1";
 
-	Item SpaceSuit, Tivs, Cane, Keycard, Terminal, BridgeMonitors, SensorMonitors, CaptainsLog;
 	SpaceSuit.name = "My Space Suit";
 	SpaceSuit.description = "Custom, for the Maintenance personel of the crew. Luckily it has holsters for the and items I have.";
 	SpaceSuit.isVisable = true;
@@ -61,10 +56,9 @@ Game::Game()
 	Keycard.isVisable = false;
 	Keycard.isMovable = true;
 
-	/*.name = "";
-	.description = "";
-	.isVisable = ;
-	.isMovable = ;*/
+
+
+	player.atlocale = &C;
 
 
 	//control the game is running
@@ -91,7 +85,8 @@ Game::Game()
 	}
 }
 
-void Input()
+
+void Game::Input()
 {
 	string call = "", type;
 	char dummySpace = ' ';
@@ -130,25 +125,25 @@ void Input()
 		GoTo(call.substr(4, call.length - 4));
 		break;
 	case 1:
-
+		Use(call.substr(4, call.length - 4));
 		break;
 	case 2:
-
+		Describe(call.substr(4, call.length - 4));
 		break;
 	case 3:
-		 
+		Look(call.substr(4, call.length - 4));
 		break;
 	case 4:
-
+		Help(call.substr(4, call.length - 4));
 		break;
 	case 5:
-
+		Pickup(call.substr(4, call.length - 4));
 		break;
 	case 6:
-
+		Drop(call.substr(4, call.length - 4));
 		break;
 	case 7:
-
+		Search(call.substr(4, call.length - 4));
 		break;
 	default:
 		cout << "Invalid Input.";
@@ -160,9 +155,38 @@ void Input()
 
 }
 
-void GoTo(string where) {
+void Game::GoTo(string where) {
 	if (where == "A" || where == "ROOM A")
-		Player.atlocale = "A";
+	{
+		player.atlocale = &A;
+	}
+	else if (where == "B" || where == "ROOM B")
+	{
+		player.atlocale = &B;
+	}
+	else if (where == "C" || where == "ROOM C")
+	{
+		player.atlocale = &B;
+	}
+	else if (where == "D" || where == "ROOM D")
+	{
+		player.atlocale = &B;
+	}
+	else if (where == "E" || where == "ROOM E")
+	{
+		player.atlocale = &B;
+	}
+	else if (where == "Space")
+	{
+		player.atlocale = &B;
+	}
+}
+
+void Game::Use(string what) {
+	if (what == "")
+	{
+
+	}
 }
 
 
