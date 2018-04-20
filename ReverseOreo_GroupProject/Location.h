@@ -7,6 +7,7 @@ public:
 	string Description;
 	string AltDescription;
 	string coords;
+	string name;
 	Item *items[];
 	Location();
 	~Location();

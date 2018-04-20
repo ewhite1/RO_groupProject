@@ -1,66 +1,168 @@
 #include "Game.h"
 #include <cstdlib>
+#include <iostream>
 #include <iomanip>
 
 
 using namespace std;
 
+Game::Game()
+{
+	Location A, B, C, D, E, S;
+	A.name = "A";
+	A.Description = "The Airlock Bay.\nOh hey, the Spacewalk group has returned. Hard to tell who all was out there but lets get back to work. J.A.F.A.R. needed a job done. Better do it before it tells the captain im being lazy.";
+	A.AltDescription = "Its hard to look around in here. Just moments ago part of the crew was just here.....";
+	A.items[5] = {};
+	A.coords = "3,4";
+	B.name = "B";
+	B.Description = "The Sensory room.\nAlways fun to watch Jensens attempt at hitting on Laura fail, Captain getting hounded by Chef Dahm about needing new supplies before he starts feeding us grease and the occasional soap opera this ships crew plays out for me.";
+	B.AltDescription = "I cant see a thing on these monitors anymore. No audio, no visuals. Not even the heat sensors are working. That AI.... ill delete it once i get to it.";
+	B.items[5] = {};
+	C.name = "C";
+	B.coords = "3,8";
+	C.Description = "The Computer Room.\nMy usual workspace. Working with the new AI system makes my job so much easier. Thank god the Captain got this for us. He said he got it fairly cheap but for a cheap AI it is well worth its cost.";
+	C.AltDescription = "My workspace..... Time to shut this AI down before it makes things worse.";
+	C.items[5] = {};
+	C.coords = "13,8";
+	D.name = "D";
+	D.Description = "The Captain's Quarters.\nCaptains not in his room? Must be in the kitchen with Florence. They usually stay there telling stories for hours. They have way to many adventures together. I wonder how old they are....";
+	D.AltDescription = "Captains room. Less of a mess than one would think. Hopeully the captain wasnt jetisoned with that group....";
+	D.items[5] = {};
+	D.coords = "13,4";
+	E.name = "E";
+	E.Description = "The Commons' Room.\nEmpty as always. I can just faintly hear the chatter over comms from the members out on a spacewalk. I guess thats one good thing about working maintenece: Less distractions by the more....... outgoing of the crew";
+	E.AltDescription = "Radio Silence. Nothing but the comms randomly hitting objects out in space. The room is still empty. No alarm. No issues. The ship doesnt even know its crew is gone. Just that blasted J.A.F.A.R. and me left.";
+	E.items[5] = {};
+	E.coords = "8,6";
+	S.name = "S";
+	S.Description = "Space.\nVast and mostly empty. space is quite a sight to see.";
+	S.AltDescription = "Vast and mostly empty. space is quite a sight to see..... without all of these dead bodies...";
+	S.items[5] = {};
+	S.coords = "8,1";
+
+	Item SpaceSuit, Tivs, Cane, Keycard, Terminal, BridgeMonitors, SensorMonitors, CaptainsLog;
+	SpaceSuit.name = "My Space Suit";
+	SpaceSuit.description = "Custom, for the Maintenance personel of the crew. Luckily it has holsters for the and items I have.";
+	SpaceSuit.isVisable = true;
+	SpaceSuit.isMovable = true;
+
+	Tivs.name = "T.I.V.S.";
+	Tivs.description = "This little guy is as random as ever. The captain finds it adorable but the rust of us think its logic processors need a complete overhaul.";
+	Tivs.isVisable = true;
+	Tivs.isMovable = true;
+
+	Cane.name = "Captain Corvin's Cane";
+	Cane.description = "The Captains cane..... its extremely fancy, completely made of titanium or so he says. Surprizingly light, maybe he wasn't lying.";
+	Cane.isVisable = true;
+	Cane.isMovable = true;
+
+	Keycard.name = "Keycard";
+	Keycard.description = "Chief Officer Turk was still holding onto it when I went out...... *Shudders*";
+	Keycard.isVisable = false;
+	Keycard.isMovable = true;
+
+	/*.name = "";
+	.description = "";
+	.isVisable = ;
+	.isMovable = ;*/
+
+
+	//control the game is running
+	bool gameActive;
+	while (gameActive = true)
+	{
+		string input;
+		system("cls");
+		MiniMap();
+		//cout << "\nYour Action? : ";
+		//getline(cin, input);
+		//if (input == "exit" || input == "EXIT"){
+		//	//run leaveGame function
+		//	leaveGame(gameActive);
+		//	
+		//}
+		//else {
+		//	cout << "\nInvalid Command. Type Help for valid commands" << endl;
+		//	//just to be safe
+		//	gameActive = true;
+		//	system("pause");
+		//}
+		Input();
+	}
+}
+
 void Input()
 {
-
 	string call = "", type;
 	char dummySpace = ' ';
 	int callNum = 0;
-
 
 	cout << "What would you like to do?\n(use the following commands followed by what item from inventory or room youre wanting)\nEX: MoveTo A\nCommands:\nMoveTo\nUseItem\nReadItem\nLookAround" << endl;
 	getline(cin, call);
 	//call.substr();
 	//cout << call.substr(0,6);
 	//cout << type << call;
-	if (call.substr(0, 6) == "MoveTo") {
+
+	if (call.substr(0, 4) == "GOTO")
+		callNum = 0;
+	else if (call.substr(0, 3) == "USE") 
 		callNum = 1;
-	}
-	else if (call.substr(0, 7) == "UseItem") {
+	else if (call.substr(0, 8) == "DESCRIBE")
 		callNum = 2;
-	}
-	else if (call == "ReadItem") {
+	else if (call.substr(0, 4) == "LOOK")
 		callNum = 3;
-	}
-	else if (call == "LookAround") {
+	else if (call.substr(0, 4) == "HELP") 
 		callNum = 4;
+	else if (call.substr(0, 6) == "PICKUP") 
+		callNum = 5;
+	else if (call.substr(0, 4) == "DROP") 
+		callNum = 6;
+	else if (call.substr(0, 6) == "SEARCH") 
+		callNum = 7;
+	else {
+		cout << "Unknown command.";
+		cin.ignore;
 	}
 
 	switch (callNum)
 	{
+	case 0:
+		GoTo(call.substr(4, call.length - 4));
+		break;
 	case 1:
-		if (call.substr(7, 1) == "A")
-		{
-			cout << "\nITS ALIVEEE" << endl;
-		}
+
 		break;
 	case 2:
-		if (call.substr(8, 4) == "Pipe") {
 
-		}else if (call.substr(8, 5) == "Light")
 		break;
 	case 3:
+		 
 		break;
 	case 4:
+
+		break;
+	case 5:
+
+		break;
+	case 6:
+
+		break;
+	case 7:
+
 		break;
 	default:
+		cout << "Invalid Input.";
+		cin.ignore;
 		break;
 	}
 	system("pause");
 
-	MoveTo(call.substr(4, call.length - 4));
-
 
 }
 
-MoveTo(string potato) {
-	if (potato == A || potato == roomA)
-		Player.atlocale = A;
+void GoTo(string where) {
+	if (where == "A" || where == "ROOM A")
+		Player.atlocale = "A";
 }
 
 
@@ -98,85 +200,6 @@ bool Game::leaveGame(bool exitGame)
 	return exitGame;
 	
 	
-}
-
-Game::Game()
-{
-	Location A, B, C, D, E, S;
-	A.Description = "Oh hey. The Spacewalk group has returned. Hard to tell who all was out there but lets get back to work. J.A.F.A.R. needed a job done. Better do it before it tells the captain im being lazy.";
-	A.AltDescription = "Its hard to look around in here. Just moments ago part of the crew was just here.....";
-	A.items[5] = {};
-	A.coords = "3,4";
-	B.Description = "Sonsory room. Always fun to watch Jensens attempt at hitting on Laura fail, Captain getting hounded by Chef Dahm about needing new supplies before he starts feeding us grease and the occasional soap opera this ships crew plays out for me.";
-	B.AltDescription = "I cant see a thing on these monitors anymore. No audio, no visuals. Not even the heat sensors are working. That AI.... ill delete it once i get to it.";
-	B.items[5] = {};
-	B.coords = "3,8";
-	C.Description = "My usual workspace. Working with the new AI system makes my job so much easier. Thank god the Captain got this for us. He said he got it fairly cheap but for a cheap AI it is well worth its cost.";
-	C.AltDescription = "My workspace..... Time to shut this AI down before it makes things worse.";
-	C.items[5] = {};
-	C.coords = "13,8";
-	D.Description = "Captains not in his room? Must be in the kitchen with Florence. They usually stay there telling stories for hours. They have way to many adventures together. I wonder how old they are....";
-	D.AltDescription = "Captains room. Less of a mess than one would think. Hopeully the captain wasnt jetisoned with that group....";
-	D.items[5] = {};
-	D.coords = "13,4";
-	E.Description = "Empty as always. I can just faintly hear the chatter over comms from the members out on a spacewalk. I guess thats one good thing about working maintenece: Less distractions by the more....... outgoing of the crew";
-	E.AltDescription = "Radio Silence. Nothing but the comms randomly hitting objects out in space. The room is still empty. No alarm. No issues. The ship doesnt even know its crew is gone. Just that blasted J.A.F.A.R. and me left.";
-	E.items[5] = {};
-	E.coords = "8,6";
-	S.Description = "Vast and mostly empty. space is quite a sight to see.";
-	S.AltDescription = "Vast and mostly empty. space is quite a sight to see..... without all of these dead bodies...";
-	S.items[5] = {};
-	S.coords = "8,1";
-
-	Item SpaceSuit, Tivs, Cane, Keycard, Terminal, BridgeMonitors, SensorMonitors, CaptainsLog;
-	SpaceSuit.name = "My Space Suit";
-	SpaceSuit.description = "Custom, for the Maintenance personel of the crew. Luckily it has holsters for the and items I have.";
-	SpaceSuit.isVisable = true;
-	SpaceSuit.isMovable = true;
-
-	Tivs.name = "T.I.V.S.";
-	Tivs.description = "This little guy is as random as ever. The captain finds it adorable but the rust of us think its logic processors need a complete overhaul.";
-	Tivs.isVisable = true;
-	Tivs.isMovable = true;
-
-	Cane.name = "Captain Corvin's Cane";
-	Cane.description = "The Captains cane..... its extremely fancy, completely made of titanium or so he says. Surprizingly light, maybe he wasn't lying.";
-	Cane.isVisable = true;
-	Cane.isMovable = true;
-
-	Keycard.name = "Keycard";
-	Keycard.description = "Chief Officer Turk was still holding onto it when I went out...... *Shudders*";
-	Keycard.isVisable = false;
-	Keycard.isMovable = true;
-
-	/*.name = "";
-	.description = "";
-	.isVisable = ;
-	.isMovable = ;*/
-	
-
-	//control the game is running
-	bool gameActive;
-	while (gameActive = true)
-	{
-		string input;
-		system("cls");
-		MiniMap();
-		//cout << "\nYour Action? : ";
-		//getline(cin, input);
-		//if (input == "exit" || input == "EXIT"){
-		//	//run leaveGame function
-		//	leaveGame(gameActive);
-		//	
-		//}
-		//else {
-		//	cout << "\nInvalid Command. Type Help for valid commands" << endl;
-		//	//just to be safe
-		//	gameActive = true;
-		//	system("pause");
-		//}
-		Input();
-	}
 }
 
 
