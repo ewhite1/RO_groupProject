@@ -17,7 +17,7 @@ int roomba::locationRandom()
 Location roomba::Sweeping(int atLocationCoord)
 {
 	// call locationRandom to move 
-	Location().coords = atLocationCoord;
+	//Location().coords = atLocationCoord;
 	return Location();
 }
 

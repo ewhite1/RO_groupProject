@@ -6,7 +6,7 @@ class Location
 public:
 	string Description;
 	string AltDescription;
-	string coords;
+	int coords[2];
 	Item *items[10];
 	Location();
 	~Location();

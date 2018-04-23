@@ -7,7 +7,7 @@ MiniMap::MiniMap()
 	HANDLE Haywire = GetStdHandle(STD_OUTPUT_HANDLE);
 	SetConsoleTextAttribute(Haywire, 10);
 
-	char Map[12][19] = {
+	 Map[12][19] = {
 		{ '~','~','~','~','~','~','~','=','-','M','a','p','-','=','~','~','~','~','~' },
 		{ '<',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ' },
 		{ '>',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ' },
@@ -23,6 +23,9 @@ MiniMap::MiniMap()
 
 	string legend[12] = {"<~~~~=-Legend-=~~~~~",">", "< Room A: Airlock",">","< Room B: Sensor",">        Controls","< Room C: Computer",">","< Room D: Captain's",">        Quarters","< Room E: Bridge","<~~~~~~~~~~~~~~~~~~~"};
 
+}
+
+void MiniMap::Display() {
 	for (int i = 0; i < 12; i++) {
 		cout << setw(80) << "";
 		cout << setw(20) << left << legend[i];
@@ -31,6 +34,11 @@ MiniMap::MiniMap()
 		}
 		cout << endl;
 	}
+}
+
+void MiniMap::ChangeLocation(int x, int y) {
+
+
 }
 
 MiniMap::~MiniMap()
