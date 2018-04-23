@@ -17,7 +17,7 @@ Terminal::Terminal(TermType term)
 		//while loop for interactivity
 		break;
 	case sensor:
-		cout << "\sensor menu:" << endl;
+		cout << "\nsensor menu:" << endl;
 		// while loop for interactivity
 
 		break;

@@ -5,102 +5,17 @@
 
 using namespace std;
 
-void Input()
-{
-
-	string call = "", type;
-	char dummySpace = ' ';
-	int callNum = 0;
-
-	cout << "What would you like to do?\n(use the following commands followed by what item from inventory or room youre wanting)\nEX: MoveTo A\nCommands:\nMoveTo\nUseItem\nReadItem\nLookAround" << endl;
-	getline(cin, call);
-	//call.substr();
-	//cout << call.substr(0,6);
-	//cout << type << call;
-	if (call.substr(0, 6) == "MoveTo") {
-		callNum = 1;
-	}
-	else if (call.substr(0, 7) == "UseItem") {
-		callNum = 2;
-	}
-	else if (call == "ReadItem") {
-		callNum = 3;
-	}
-	else if (call == "LookAround") {
-		callNum = 4;
-	}
-
-	switch (callNum)
-	{
-	case 1:
-		if (call.substr(7, 1) == "A")
-		{
-			cout << "\nITS ALIVEEE" << endl;
-		}
-		break;
-	case 2:
-		if (call.substr(8, 4) == "Pipe") {
-
-		}else if (call.substr(8, 5) == "Light")
-		break;
-	case 3:
-		break;
-	case 4:
-		break;
-	default:
-		break;
-	}
-	system("pause");
-
-	/*MoveTo(call.substr(4, call.length - 4));*/
 
 
-}
 
-//MoveTo(string potato) {
-//	if (potato == A || potato == roomA)
-//		Player.atlocale = A;
-//}
-
-
-bool Game::leaveGame(bool exitGame)
-{
-	char choice;
-	bool validChoice = false;
-	while (!validChoice)
-	{
-		//if the command exit is called, this will terminate the game
-		cout << "\nAre you sure you wish to exit the game? Y/N:";
-		cin >> choice;
-		if (choice == 'Y' || choice == 'y') {
-			
-			cout << "\nThanks for playing, Please try again!" << endl << "Exiting.."<< endl << endl;
-			//just immediatly quit the program.
-			exit(0);
-			//validChoice = true;
-		}
-		else if (choice == 'N' || choice == 'n') {
-			//do nothing, go back to input
-			cout << "\nBack to the game....";
-			exitGame = false;
-			validChoice = true;
-			//to prevent an issue with getline from showing double
-			cin.ignore();
-		}
-		else
-		{
-			cout << "\nError in input. Try again.";
-			validChoice = false;
-		}
-	
-	}
-	return exitGame;
-	
-	
-}
 
 Game::Game()
 {
+	//may swap this to pointers
+	Location *testA = new Location;
+	testA->Description = "test";
+	testA->AltDescription = "test2";
+	testA->coords = "3,4";
 	Location A, B, C, D, E, S;
 	A.Description = "Oh hey. The Spacewalk group has returned. Hard to tell who all was out there but lets get back to work. J.A.F.A.R. needed a job done. Better do it before it tells the captain im being lazy.";
 	A.AltDescription = "Its hard to look around in here. Just moments ago part of the crew was just here.....";
@@ -148,20 +63,22 @@ Game::Game()
 	Keycard.isVisable = false;
 	Keycard.isMovable = true;
 
+	player1.atlocale = &C;
 	/*.name = "";
 	.description = "";
 	.isVisable = ;
 	.isMovable = ;*/
-	
+
 
 	//control the game is running
 	bool gameActive;
+
 	while (gameActive = true)
 	{
 		string input;
 		system("cls");
 		MiniMap();
-		
+
 		//cout << "\nYour Action? : ";
 		//getline(cin, input);
 		//if (input == "exit" || input == "EXIT"){
@@ -175,10 +92,213 @@ Game::Game()
 		//	gameActive = true;
 		//	system("pause");
 		//}
-		cout << A.Description << endl;
+		//cout << A.Description << endl;
 		Input();
 	}
 }
+
+
+
+
+void Game::Input()
+{
+	string call = "", type;
+	char dummySpace = ' ';
+	int callNum = 0;
+	cout << "What would you like to do?\n(use the following commands followed by what item from inventory or room youre wanting)\nEX: MoveTo A\nCommands:\nMoveTo\nUseItem\nReadItem\nLookAround" << endl;
+	getline(cin, call);
+	//call.substr();
+	//cout << call.substr(0,6);
+	//cout << type << call;
+
+	if (call.substr(0, 4) == "GOTO")
+		callNum = 0;
+	else if (call.substr(0, 3) == "USE")
+		callNum = 1;
+	else if (call.substr(0, 8) == "DESCRIBE")
+		callNum = 2;
+	else if (call.substr(0, 4) == "LOOK")
+		callNum = 3;
+	else if (call.substr(0, 4) == "HELP")
+		callNum = 4;
+	else if (call.substr(0, 6) == "PICKUP")
+		callNum = 5;
+	else if (call.substr(0, 4) == "DROP")
+		callNum = 6;
+	else if (call.substr(0, 6) == "SEARCH")
+		callNum = 7;
+	else {
+		cout << "Unknown command.";
+		cin.ignore;
+	}
+
+	switch (callNum)
+	{
+	case 0:
+		GoTo(call.substr(4, call.length - 4));
+		break;
+	case 1:
+		Use(call.substr(4, call.length - 4));
+		break;
+	case 2:
+		Describe(call.substr(4, call.length - 4));
+		break;
+	case 3:
+		Look(call.substr(4, call.length - 4)); 
+		break;
+	case 4:
+		Help(call.substr(4, call.length - 4)); //complaining about how the function doesn't take a parameter
+		break;
+	case 5:
+		Pickup(call.substr(4, call.length - 4));
+		break;
+	case 6:
+		Drop(call.substr(4, call.length - 4));
+		break;
+	case 7:
+		Search(call.substr(4, call.length - 4)); //complaining about how this function doesn't take a parameter
+		break;
+	default:
+		cout << "Invalid Input.";
+		cin.ignore;
+		break;
+	}
+	system("pause");
+}
+
+void Game::GoTo(string where)
+{
+	//not working
+	/*if (where == "A" || where == "ROOM A")
+	{
+		player1.atlocale = &A;
+	}
+	else if (where == "B" || where == "ROOM B")
+	{
+		player1.atlocale = &B;
+	}
+	else if (where == "C" || where == "ROOM C")
+	{
+		player1.atlocale = &B;
+	}
+	else if (where == "D" || where == "ROOM D")
+	{
+		player1.atlocale = &B;
+	}
+	else if (where == "E" || where == "ROOM E")
+	{
+		player1.atlocale = &B;
+	}
+	else if (where == "Space")
+	{
+		player1.atlocale = &B;
+	}*/
+}
+
+void Game::Use(string what)
+{
+	//check to see if item is in player inventory First
+	//some array search thing goes here
+	//room D
+	if (what == "note")
+	{
+		//uhhhh since this can be a lot,
+		//we might have to separate them based upon 
+		//what room they are in
+	}
+
+	if (what == "Captain belongings")
+	{
+		//this would just generate an description
+	}
+	//room e
+	if (what == "Captain Cane")
+	{
+
+	}
+	if (what == "Captain perch")
+	{
+
+	}
+	// room b
+	if (what == "Headlamp")
+	{
+
+	}
+	//room a
+	if (what == "Space Suit")
+	{
+
+	}
+	//space
+	if (what == "keycard")
+	{
+
+	}
+}
+
+void Game::Describe(string what)
+{
+}
+
+void Game::Look(string where)
+{
+
+}
+
+void Game::Help()
+{
+	//just cout all the commands
+}
+
+void Game::Pickup(string itemName)
+{
+}
+
+void Game::Drop(string itemDrop)
+{
+}
+
+void Game::Search()
+{
+}
+
+bool Game::leaveGame(bool exitGame)
+{
+	char choice;
+	bool validChoice = false;
+	while (!validChoice)
+	{
+		//if the command exit is called, this will terminate the game
+		cout << "\nAre you sure you wish to exit the game? Y/N:";
+		cin >> choice;
+		if (choice == 'Y' || choice == 'y') {
+			
+			cout << "\nThanks for playing, Please try again!" << endl << "Exiting.."<< endl << endl;
+			//just immediatly quit the program.
+			exit(0);
+			//validChoice = true;
+		}
+		else if (choice == 'N' || choice == 'n') {
+			//do nothing, go back to input
+			cout << "\nBack to the game....";
+			exitGame = false;
+			validChoice = true;
+			//to prevent an issue with getline from showing double
+			cin.ignore();
+		}
+		else
+		{
+			cout << "\nError in input. Try again.";
+			validChoice = false;
+		}
+	
+	}
+	return exitGame;
+	
+	
+}
+
 
 
 Game::~Game()
