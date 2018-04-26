@@ -6,6 +6,11 @@ Player::Player()
 {
 }
 
+bool Player::EquipedSpaceSuit()
+{
+
+	return true;
+}
 
 Player::~Player()
 {

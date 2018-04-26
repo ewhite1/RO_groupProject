@@ -15,9 +15,9 @@ Game::Game()
 	testA->Description = "test";
 	testA->AltDescription = "test2";
 	testA->coords = "3,4";*/
+	
 
-
-	map->Map[0][19] = { '~','~','~','~','~','~','~','=','-','M','a','p','-','=','~','~','~','~','~' };
+	/*map->Map[0][19] = { '~','~', '~','~','~','~','~','=','-','M','a','p','-','=','~','~','~','~','~' };
 	map->Map[1][19] = { '<',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ' };
 	map->Map[2][19] = { '>',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ' };
 	map->Map[3][19] = { '<',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ' };
@@ -28,30 +28,30 @@ Game::Game()
 	map->Map[8][19] = { '>',' ',(char)186,' ',' ',' ',(char)200,(char)205,(char)254,(char)205,(char)203,(char)205,(char)205,(char)205,(char)188,' ',' ',' ',(char)186 };
 	map->Map[9][19] = { '<',' ',(char)186,' ','B',' ',' ',' ',' ',' ',(char)186,' ',' ',' ',' ',' ','C',' ',(char)186 };
 	map->Map[10][19] = { '>',' ',(char)200,(char)205,(char)205,(char)205,(char)205,(char)205,(char)205,(char)205,(char)202,(char)205,(char)205,(char)205,(char)205,(char)205,(char)205,(char)205,(char)188 };
-	map->Map[11][19] = { '~','~','~','~','~','~','~','~','~','~','~','~','~','~','~','~','~','~','~' };
+	map->Map[11][19] = { '~','~','~','~','~','~','~','~','~','~','~','~','~','~','~','~','~','~','~' };*/
 
-	A->Description = "Oh hey. The Spacewalk group has returned. Hard to tell who all was out there but lets get back to work. J.A.F.A.R. needed a job done. Better do it before it tells the captain im being lazy.";
+	A->Description = "Oh hey. The Spacewalk group has returned. Hard to tell who all was out there but lets get back to work. \nJ.A.F.A.R. needed a job done. Better do it before it tells the captain im being lazy.";
 	A->AltDescription = "Its hard to look around in here. Just moments ago part of the crew was just here.....";
 	A->items[5] = {};
 	A->coords[0] = 3;
 	A->coords[1] = 4;
-	B->Description = "Sonsory room. Always fun to watch Jensens attempt at hitting on Laura fail, Captain getting hounded by Chef Dahm about needing new supplies before he starts feeding us grease and the occasional soap opera this ships crew plays out for me.";
-	B->AltDescription = "I cant see a thing on these monitors anymore. No audio, no visuals. Not even the heat sensors are working. That AI.... ill delete it once i get to it.";
+	B->Description = "Sonsory room. Always fun to watch Jensens attempt at hitting on Laura fail, \nCaptain getting hounded by Chef Dahm about needing new supplies before\n he starts feeding us grease and the occasional soap opera this ships crew plays out for me.";
+	B->AltDescription = "I cant see a thing on these monitors anymore. \nNo audio, no visuals. \nNot even the heat sensors are working. That AI.... ill delete it once i get to it.";
 	B->items[5] = {};
 	B->coords[0] = 3;
 	B->coords[1] = 8;
-	C->Description = "My usual workspace. Working with the new AI system makes my job so much easier. Thank god the Captain got this for us. He said he got it fairly cheap but for a cheap AI it is well worth its cost.";
+	C->Description = "My usual workspace. Working with the new AI system makes my job so much easier. \nThank god the Captain got this for us. He said he got it fairly cheap but for a cheap AI it is well worth its cost.";
 	C->AltDescription = "My workspace..... Time to shut this AI down before it makes things worse.";
 	C->items[5] = {};
 	C->coords[0] = 13;
 	C->coords[1] = 8;
-	D->Description = "Captains not in his room? Must be in the kitchen with Florence. They usually stay there telling stories for hours. They have way to many adventures together. I wonder how old they are....";
+	D->Description = "Captains not in his room? Must be in the kitchen with Florence. They usually stay there telling stories for hours. \nThey have way to many adventures together. I wonder how old they are....";
 	D->AltDescription = "Captains room. Less of a mess than one would think. Hopeully the captain wasnt jetisoned with that group....";
 	D->items[5] = {};
 	D->coords[0] = 13;
 	D->coords[1] = 4;
-	E->Description = "Empty as always. I can just faintly hear the chatter over comms from the members out on a spacewalk. I guess thats one good thing about working maintenece: Less distractions by the more....... outgoing of the crew";
-	E->AltDescription = "Radio Silence. Nothing but the comms randomly hitting objects out in space. The room is still empty. No alarm. No issues. The ship doesnt even know its crew is gone. Just that blasted J.A.F.A.R. and me left.";
+	E->Description = "Empty as always. I can just faintly hear the chatter over comms from the members out on a spacewalk. \nI guess thats one good thing about working maintenece: Less distractions by the more....... outgoing of the crew";
+	E->AltDescription = "Radio Silence. Nothing but the comms randomly hitting objects out in space. The room is still empty. \nNo alarm. \nNo issues. \nThe ship doesnt even know its crew is gone. Just that blasted J.A.F.A.R. and me left.";
 	E->items[5] = {};
 	E->coords[0] = 8;
 	E->coords[1] = 6;
@@ -88,7 +88,7 @@ Game::Game()
 	.isVisable = ;
 	.isMovable = ;*/
 
-
+	
 	//control the game is running
 	bool gameActive;
 
@@ -96,23 +96,7 @@ Game::Game()
 	{
 		string input;
 		system("cls");
-		
 		map->Display();
-
-		//cout << "\nYour Action? : ";
-		//getline(cin, input);
-		//if (input == "exit" || input == "EXIT"){
-		//	//run leaveGame function
-		//	leaveGame(gameActive);
-		//	
-		//}
-		//else {
-		//	cout << "\nInvalid Command. Type Help for valid commands" << endl;
-		//	//just to be safe
-		//	gameActive = true;
-		//	system("pause");
-		//}
-		//cout << A.Description << endl;
 		Input();
 	}
 }
@@ -123,12 +107,27 @@ void Game::Input()
 	string call = "", type;
 	char dummySpace = ' ';
 	int callNum = 0;
-	cout << "What would you like to do?\n(use the following commands followed by what item from inventory or room youre wanting)\nEX: MoveTo A\nCommands:\nMoveTo\nUseItem\nReadItem\nLookAround" << endl;
+	
+
+	if (countMoves == 0)
+	{
+		ShowLocation(*player1.atlocale);
+
+		cout << "\nYour Action?(type help for a list of commands): ";
+	}
+	else
+	{
+		ShowLocation(*player1.atlocale);
+		cout << "\nYour Action?: ";
+	}
 	getline(cin, call);
+	//transform each character to uppercase using to upper method and some magic from the algorithm class
+	transform(call.begin(), call.end(), call.begin(), ::toupper);
+
 	//call.substr();
 	//cout << call.substr(0,6);
 	//cout << type << call;
-
+	// remove the first command strings, to get the substring to effect the command
 	if (call.substr(0, 4) == "GOTO")
 		GoTo(call.substr(5, call.length() - 5));
 	else if (call.substr(0, 3) == "USE")
@@ -139,6 +138,11 @@ void Game::Input()
 		Look(call.substr(5, call.length() - 5));
 	else if (call.substr(0, 4) == "HELP")
 		Help();
+	else if (call.substr(0,4) == "QUIT")
+	{
+		bool gameAct = true;
+		leaveGame(gameAct);
+	}	
 	else if (call.substr(0, 6) == "PICKUP")
 		Pickup(call.substr(7, call.length() - 7));
 	else if (call.substr(0, 4) == "DROP")
@@ -149,36 +153,114 @@ void Game::Input()
 		cout << "Unknown command.";
 		cin.ignore();
 	}
+	countMoves += 1;
 }
 
 void Game::GoTo(string where)
 {
-	if (where == "A" || where == "ROOM A")
+	//logic tree to rooms avalible to go to
+	if (player1.atlocale == C)
 	{
-		player1.atlocale = A;
-		map->ChangeLocation(A->coords[0], A->coords[1]);
+		if (where == "D" || where == "ROOM D")
+		{
+			player1.atlocale = D;
+			map->ChangeLocation(D->coords[0], D->coords[1]);
+		}
+		else
+		{
+			cout << "You cannot move to that location from here" << endl;
+			system("pause");
+		}
+	} 
+	else if (player1.atlocale == D)
+	{
+		if (where == "C" || where == "ROOM C")
+		{
+			//starter room
+			player1.atlocale = C;
+			map->ChangeLocation(C->coords[0], C->coords[1]);
+		}
+		else if (where == "E" || where == "ROOM E")
+		{
+			player1.atlocale = E;
+			map->ChangeLocation(E->coords[0], E->coords[1]);
+		}
+		else
+		{
+			cout << "You cannot move to that location from here" << endl;
+			system("pause");
+		}
+	} 
+	else if(player1.atlocale == E)
+	{
+		if (where == "D" || where == "ROOM D")
+		{
+			player1.atlocale = D;
+			map->ChangeLocation(D->coords[0], D->coords[1]);
+		}
+		else if (where == "B" || where == "ROOM B")
+		{
+			player1.atlocale = B;
+			map->ChangeLocation(B->coords[0], B->coords[1]);
+		}
+		else
+		{
+			cout << "You cannot move to that location from here"<< endl;
+			system("pause");
+		}
+	}
+	else if(player1.atlocale == B)
+	{
+		if (where == "A" || where == "ROOM A")
+		{
+			player1.atlocale = A;
+			map->ChangeLocation(A->coords[0], A->coords[1]);
+
+		}
+		else if (where == "E" || where == "ROOM E")
+		{
+			player1.atlocale = E;
+			map->ChangeLocation(E->coords[0], E->coords[1]);
+		}
+		else
+		{
+			cout << "You cannot move to that location from here"<< endl;
+			system("pause");
+		}
 		
-	}
-	else if (where == "B" || where == "ROOM B")
+	} 
+	else if (player1.atlocale == A)
 	{
-		player1.atlocale = B;
+		if (where == "SPACE" || where == "S")
+		{
+			player1.atlocale = S;
+			map->ChangeLocation(S->coords[0], S->coords[1]);
+			//if not wearing a space suit call
+			if (spacesuitEquipped == true) {
+				//float away!
+			}
+			else 
+			{
+				InstaDeath(1);
+			}
+		}
 	}
-	else if (where == "C" || where == "ROOM C")
+	else
 	{
-		player1.atlocale = C;
+		//if in outer space only place you can go back to is the airlock
+		if (where == "A" || where == "ROOM A")
+		{
+			player1.atlocale = A;
+			map->ChangeLocation(A->coords[0], A->coords[1]);
+
+		} else
+		{
+			cout << "You cannot move to that location from here"<< endl;
+			system("pause");
+		}
 	}
-	else if (where == "D" || where == "ROOM D")
-	{
-		player1.atlocale = D;
-	}
-	else if (where == "E" || where == "ROOM E")
-	{
-		player1.atlocale = E;
-	}
-	else if (where == "Space")
-	{
-		player1.atlocale = S;
-	}
+	
+
 }
 
 void Game::Use(string what)
@@ -214,7 +296,9 @@ void Game::Use(string what)
 	//room a
 	if (what == "Space Suit")
 	{
-
+		spacesuitEquipped = player1.EquipedSpaceSuit();
+		cout << "\nokay";
+		system("pause");
 	}
 	//space
 	if (what == "keycard")
@@ -235,6 +319,26 @@ void Game::Look(string where)
 void Game::Help()
 {
 	//just cout all the commands
+	cout << "use the following commands followed by what item from inventory or room youre wanting." << endl << "Example: goto room a" << endl;
+	cout << "here are all the commands you can use:" << endl;
+	cout << "GOTO\nUSE\nDESCRIBE\nLOOK\nPICKUP\nSEARCH\nDROP\nQUIT" << endl;
+	system("pause");
+}
+
+bool Game::InstaDeath(int kind)
+{
+
+	cout << "GAME OVER" << endl;
+	if (kind == 1) 
+	{
+		cout << "Walking out into space without a spacesuit makes your entire body boil up within 7 seconds." << endl << "Thanks for playing" << endl;
+	}
+	else
+	{
+		cout << "A Beam fell on your Head. Causing you to not be able to move, and leaving you unconscious.";
+	}
+	exit(0);
+
 }
 
 void Game::Pickup(string itemName)
@@ -243,6 +347,12 @@ void Game::Pickup(string itemName)
 
 void Game::Drop(string itemDrop)
 {
+	if(itemDrop == "SpaceSuit")
+	{
+		cout << "You remove The helmet off, hearing the air hiss out.";
+		bool spacesuitEquipped = false;
+		system("pause");
+	}
 }
 
 void Game::Search(string what)
@@ -283,6 +393,12 @@ bool Game::leaveGame(bool exitGame)
 	return exitGame;
 	
 	
+}
+
+void Game::ShowLocation(Location  &atlocation)
+{//if movecount == x show altDescription instead
+	cout << "\nLocation Description: ";
+	cout << atlocation.Description << endl;	
 }
 
 

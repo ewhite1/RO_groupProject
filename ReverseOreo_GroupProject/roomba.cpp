@@ -11,6 +11,7 @@ string roomba::SaySomething()
 
 int roomba::locationRandom()
 {
+	int x = rand() % 12;
 	return 0;
 }
 
